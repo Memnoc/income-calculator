@@ -11,13 +11,13 @@ fn main() -> Result<(), slint::PlatformError> {
     ui.on_divide_income(move |string| {
         let ui = ui_handle.unwrap();
         // parsing the string number
-        let num: f64 = string.trim().parse().unwrap();
+        let num: f64 = string.trim_end().parse().unwrap();
         let tax: f64 = num * TAXPERCENTAGE;
         let owner: f64 = num * OWNERPERCENTAGE;
         let profit: f64 = num * PROFITPERCENTAGE;
         let opex: f64 = num * OPEXPERCENTAGE;
         let result = format!(
-            "Taxes: {:2}\nOwner: {:2}\nProfit: {:2}\nOpEx: {:2}",
+            "Taxes: {:.2}\nOwner: {:.2}\nProfit: {:.2}\nOpEx: {:.2}",
             tax, owner, profit, opex
         );
         ui.set_results(result.into());
