@@ -1,4 +1,4 @@
-# Icome Calculator
+# Income Calculator
 
 A simple app to calculate monthly expenses and taxes. Started as a project idea from the good input of [Travis Media](https://www.youtube.com/watch?v=7aFgeUG9TK4&list=PL22QEtzSG4EUDm9sVwqoOHCgWV4tTYfvk&index=63)
 
