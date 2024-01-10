@@ -4,6 +4,7 @@ version = "0.1.0"
 authors = ["memnoc"]
 edition = "2021"
 build = "build.rs"
+description = "A desktop app to calculate various streams of income"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -12,3 +13,6 @@ slint = "1.0"
 
 [build-dependencies]
 slint-build = "1.0"
+[package.metadata.bundle]
+identifier = "income-calculator"
+name = "Income Calculator"

@@ -6,6 +6,7 @@ export component AppWindow inherits Window {
 
 callback divide-income(string);
 in property <string> results: "";
+in-out property <bool> open_curtain;
 
 
     background: #313e50;
@@ -19,7 +20,6 @@ in property <string> results: "";
                 font-size: 24px;
                 font-weight: 900;
                 color: white;
-
             }
         }
 
@@ -38,7 +38,8 @@ in property <string> results: "";
                 text: "calculate";
                 primary: true;
                 height: 35px;
-                clicked => {divide-income(income.text)}
+                clicked => {root.open-curtain = !root.open-curtain;
+                    divide-income(income.text)}
             }
 
         }
@@ -53,7 +54,33 @@ in property <string> results: "";
                         font-weight: 500;
                         text: root.results;
                     }
+
+                    // Left Reactangle
+                    Rectangle {
+                        background: #333333;
+                        x: 0;
+                        width: open-curtain ? 0px : parent.width / 2;
+                        height: parent.height;
+                        animate width {
+                            duration: 250ms; easing: ease-in;
+                        }
+                    }
+
+                // Right Rectangle
+                Rectangle {
+                    background: #333333;
+                    x: open-curtain ? parent.width : parent.width / 2;
+                    width: open-curtain ? 0px : parent.width / 2;
+                    height: parent.height;
+                    animate width {
+                        duration: 250ms; easing: ease-in;
+                    }
+                    animate x {
+                        duration: 250ms; easing: ease-in;
+                    }
                 }
+            }
+
             }
         }
     }
